@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>我爱看电影</title>
+	</head>
+	<link rel="icon" href="favicon.ico" type="image/x-icon" />
+	<link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+	
+	<style>
+	body{
+		/* color:#E64A19; */
+		/* color:white; */
+		/* font-weight: bold; */
+		/* background: #008855; */
+	}
+	#searchdiv {
+		border: solid 3px #E64A19;
+		width: 400px;
+		height: 40px;
+		background:
+			url(./favicon.ico)
+			no-repeat 0 center; 
+		background-size:32px 32px;
+		margin:30px auto;
+		vertical-align: middle;
+	}
+	#mytext {
+		float: left;
+		border: none;
+		background: none;
+		/* height: 36px; */
+		/* line-height: 30px; */
+		width: 80%;
+		text-indent: 40px;
+		font-size: 1.3em;
+		outline:none;
+		vertical-align: middle;
+		
+	}
+	#search{
+		float: right;
+		background: #E64A19;
+		border:0px solid red;
+		font-size: 1.4em;
+		height: 36px;
+		color: white;
+		outline:none;
+		width:70px;
+		vertical-align: middle;
+	}
+	#search:hover{
+		font-size:1.5em;
+		
+	}
+	.container{
+	}
+	.card{
+		/* width: 30%; */
+		/* min-height:200px; */
+		/* height:250px; */
+		/* display: inline-block; */
+		margin:1%;
+		/* float: left; */
+		background: none;
+	}
+	#page{
+		text-align: center;
+		position: relative;
+		top:30px;
+	}
+</style>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="https://cdn.bootcss.com/angular.js/1.7.0/angular.min.js"></script>
+<script>
+	
+	var app = angular.module('mylist', []);
+	app.controller('myListCon', function($scope, $http) {
+		$scope.myhttp = function (q,page) {
+			$http({
+				method: 'GET',
+				url: 'api_filmList.php?q='+q+'&page='+page
+			}).then(function successCallback(response) {
+					//console.log("请求成功"+JSON.stringify(response.data));
+					$scope.data = response.data;
+				}, function errorCallback(response) {
+					// 请求失败执行代码
+					console.log("请求失败,请联系管理员"+response);
+			});
+        }
+		myhttp = $scope.myhttp;
+		//默认请求没有参数的
+		myhttp("",1);
+	  
+	});
+	
+	
+</script>
+<script type="text/javascript">
+	 $(document).ready(function(){
+		$('#search').click(function(){
+			//拿取文本框的内容
+			q = $("#mytext").val();			
+			//获取angular 的$scope
+			//var angularScope = $('div[ng-controller="myListCon"]').scope();
+			//angularScope.myhttp(q)
+			
+			//以下是更为简便的方法
+			myhttp(q,1);
+		 });
+	 });
+	
+</script>
+<script type="text/javascript">
+
+</script>
+<body>
+	
+	<div id="searchdiv">
+		<input type="text" id="mytext" placeholder="西虹市首富"/>
+		<input type="button" value="搜索" id="search" ng-click="search()" ng-model="qq">
+	</div>
+	
+	<div class="container"  ng-app="mylist" ng-controller="myListCon">
+		<div class="">
+		共检索出符合【{{data.q}}】条件的{{data.sum}}条数据
+		</div>
+		<!-- 重复之前先判断 -->
+		<div class="card {{row.bgcolor}}" ng-if="data == '查无结果'" >
+			暂时还没有收录您想看的电影
+		</div>
+		
+		<!--重复 start-->
+		<div class="card" ng-repeat="row in data.list" ng-if="data != '查无结果'" >
+			<div class="card-body">
+				<h4 class="card-title">{{row.title}}</h4>
+				<p class="card-text"><a href="{{row.url}}" target="_blank">{{row.url}}</a></p>
+				<p class="card-text">{{row.pwd}}</p>
+			</div>
+		</div>
+		<!--重复 end-->
+		
+		<div id="page">
+		<span href="#" class="btn btn-info btn-lg" id="first" ng-click="myhttp(data.q,1)">
+          <span class="glyphicon glyphicon-arrow-left"></span> 首页
+        </span> 
+        
+		<span href="#" class="btn btn-success btn-lg"  >
+          <span class="glyphicon glyphicon-arrow-left"></span> 当前页 {{data.page}}
+        </span> 
+        
+		<span href="#" class="btn btn-info btn-lg" id="pre" ng-if="data.page > 1" ng-click="myhttp(data.q,data.pre)">
+          <span class="glyphicon glyphicon-arrow-left"></span> 上一页
+        </span> 
+
+		<span href="#" class="btn btn-info btn-lg" id="next" ng-if="data.page < data.page_count_sum" ng-click="myhttp(data.q,data.next)">
+          <span class="glyphicon glyphicon-arrow-right"></span> 下一页
+        </span>
+        
+        <span href="#" class="btn btn-info btn-lg" id="last" ng-if="data.page < data.page_count_sum" ng-click="myhttp(data.q,data.page_count_sum)">
+          <span class="glyphicon glyphicon-arrow-right"></span> 尾页 {{data.page_count_sum}}
+        </span>
+        </div>
+	</div>
+
+</body>
+</html>

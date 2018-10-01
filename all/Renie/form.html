@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Yuri随笔</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" href="source/icon/icon.ico" type="image/x-icon" />
+	
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+	<!--<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>-->
+	<script src="http://apps.bdimg.com/libs/angular.js/1.2.15/angular.min.js"></script>
+	<style>
+		.title, .content, .author{
+			width:300px;
+		}
+		.content{
+			height:200px;
+		}
+		.card{
+			display:inline-block; 
+		}
+		.container, .pbtn{
+			text-align:center;
+		}
+		.color{
+			width:22px;
+			height:24px;
+			display:inline-block; 
+			border:2px solid white;
+		}
+	</style>
+
+	
+</head>
+<body>
+
+	<div class="container"  >
+	<form action="add.php" method="post">
+		<h2>添加随笔</h2>
+		
+		<!--重复 start-->
+		<div  class="card">
+			<div class="card-body">
+				<h4 class="card-title">
+					<input name="title"  placeholder="标题"  class="title" required>
+				</h4>
+				<p class="card-text">
+					<textarea placeholder="写下一句话代表你现在的心情" class="content" name="content" required></textarea>
+				</p>
+				<p>
+					<input name="author" placeholder="作者"  class="author">
+				</p>
+				<p>
+					<input name="bgcolor" id="bgcolor" hidden>
+					<div class="color bg-primary text-white" id="bg-primary text-white">蓝</div>
+					<div class="color bg-success text-white" id="bg-success text-white">绿</div>
+					<div class="color bg-info text-white" id="bg-info text-white">青</div>
+					<div class="color bg-warning text-white" id="bg-warning text-white">黄</div>
+					<div class="color bg-danger text-white" id="bg-danger text-white">红</div>
+					<div class="color bg-secondary text-white" id="bg-secondary text-white">灰</div>
+					<div class="color bg-dark text-white" id="bg-dark text-white">黑</div>
+				</p>
+				<p class="pbtn">
+					<input type="submit"  value="发布"  class="btn btn-success">
+				</p>
+			</div>
+		</div>
+		<!--重复 end-->
+		</form>
+	</div>
+	
+	<script>
+		$(".color").click(function (){
+			$(".color").css("border","2px solid white");
+			$(this).css("border","2px solid red");
+			$("#bgcolor").attr("value",$(this).attr("id"));
+			//alert($(this).attr("id"))
+		})
+	
+	</script>
+
+</body>
+</html>

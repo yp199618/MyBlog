@@ -1,0 +1,32 @@
+ul li{
+    padding: 5px 10px;
+    border-top: 2px solid #4C555A;
+    border-bottom: 2px solid #4C555A;
+}
+ul li:hover{
+    border-top: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+}
+ul li a:hover{
+    text-decoration:none !important;
+}
+.selected{
+    border-top: 2px solid #00CCFF;
+    border-bottom: 2px solid #00CCFF;
+}
+
+
+/*底部居中*/
+.copyright{
+    text-align: center;
+}
+.copyright p{
+    margin: 20px auto;
+}
+
+a:visited {
+    color: #ccc !important;
+}
+.selected :visited{
+    color: #fff !important;
+}

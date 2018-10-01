@@ -1,0 +1,88 @@
+::1-----set names utf8-----22:18:45
+::1-----select * from duoduo_webset where type=1 or type=0 -----22:18:45
+::1-----select * from duoduo_webset where type=2 -----22:18:45
+::1-----select `key`,`secret`,`sort` as num from duoduo_appkey where sort>0 order by id asc -----22:18:45
+::1-----select val from duoduo_webset where var="authorize" limit 1-----22:18:45
+::1-----set names utf8-----22:18:46
+::1-----select * from duoduo_webset where type=1 or type=0 -----22:18:46
+::1-----select * from duoduo_webset where type=2 -----22:18:46
+::1-----select `key`,`secret`,`sort` as num from duoduo_appkey where sort>0 order by id asc -----22:18:46
+::1-----select val from duoduo_webset where var="authorize" limit 1-----22:18:46
+::1-----set names utf8-----22:19:02
+::1-----select * from duoduo_webset where type=1 or type=0 -----22:19:02
+::1-----select * from duoduo_webset where type=2 -----22:19:02
+::1-----select `key`,`secret`,`sort` as num from duoduo_appkey where sort>0 order by id asc -----22:19:02
+::1-----select val from duoduo_webset where var="authorize" limit 1-----22:19:02
+::1-----select * from duoduo_duoduo2010 where adminname="admin" and adminpass="ea759565691db412e6728004490b312e" limit 1-----22:19:02
+::1-----update duoduo_duoduo2010 set `lastlogintime`='0',`lastloginip`='',`loginnum`=`loginnum`+'1',`logintime`='1536243542',`loginip`='::1' where id=1 limit 1-----22:19:02
+::1-----select a.id from duoduo_menu as a,duoduo_menu_access as b where a.`mod`="webset" and a.`act`="center" and a.id=b.menu_id and b.role_id="1" limit 1-----22:19:02
+::1-----set names utf8-----22:19:03
+::1-----select * from duoduo_webset where type=1 or type=0 -----22:19:03
+::1-----select * from duoduo_webset where type=2 -----22:19:03
+::1-----select `key`,`secret`,`sort` as num from duoduo_appkey where sort>0 order by id asc -----22:19:03
+::1-----select val from duoduo_webset where var="authorize" limit 1-----22:19:03
+::1-----select a.id from duoduo_menu as a,duoduo_menu_access as b where a.`mod`="webset" and a.`act`="center" and a.id=b.menu_id and b.role_id="1" limit 1-----22:19:03
+::1-----select a.id,a.node,a.mod,a.act,a.title,a.parent_id,a.hide from duoduo_menu as a,duoduo_menu_access as b where a.id=b.menu_id and b.role_id='1' and a.mod<>'fun' order by a.listorder desc,a.sort desc,a.id asc-----22:19:03
+::1-----set names utf8-----22:19:18
+::1-----select * from duoduo_webset where type=1 or type=0 -----22:19:18
+::1-----select * from duoduo_webset where type=2 -----22:19:18
+::1-----select `key`,`secret`,`sort` as num from duoduo_appkey where sort>0 order by id asc -----22:19:18
+::1-----select val from duoduo_webset where var="authorize" limit 1-----22:19:18
+::1-----select a.id from duoduo_menu as a,duoduo_menu_access as b where a.`mod`="webset" and a.`act`="center" and a.id=b.menu_id and b.role_id="1" limit 1-----22:19:18
+::1-----select a.id,a.node,a.mod,a.act,a.title,a.parent_id,a.hide from duoduo_menu as a,duoduo_menu_access as b where a.id=b.menu_id and b.role_id='1' and a.mod<>'fun' order by a.listorder desc,a.sort desc,a.id asc-----22:19:18
+::1-----set names utf8-----22:19:25
+::1-----select * from duoduo_webset where type=1 or type=0 -----22:19:25
+::1-----select * from duoduo_webset where type=2 -----22:19:25
+::1-----select `key`,`secret`,`sort` as num from duoduo_appkey where sort>0 order by id asc -----22:19:25
+::1-----select val from duoduo_webset where var="authorize" limit 1-----22:19:25
+::1-----select a.id from duoduo_menu as a,duoduo_menu_access as b where a.`mod`="webset" and a.`act`="center" and a.id=b.menu_id and b.role_id="1" limit 1-----22:19:25
+::1-----select a.id,a.node,a.mod,a.act,a.title,a.parent_id,a.hide from duoduo_menu as a,duoduo_menu_access as b where a.id=b.menu_id and b.role_id='1' and a.mod<>'fun' order by a.listorder desc,a.sort desc,a.id asc-----22:19:25
+::1-----set names utf8-----22:19:41
+::1-----select * from duoduo_webset where type=1 or type=0 -----22:19:41
+::1-----select * from duoduo_webset where type=2 -----22:19:41
+::1-----select `key`,`secret`,`sort` as num from duoduo_appkey where sort>0 order by id asc -----22:19:41
+::1-----select val from duoduo_webset where var="authorize" limit 1-----22:19:41
+::1-----select a.id from duoduo_menu as a,duoduo_menu_access as b where a.`mod`="webset" and a.`act`="center" and a.id=b.menu_id and b.role_id="1" limit 1-----22:19:41
+::1-----select a.id,a.node,a.mod,a.act,a.title,a.parent_id,a.hide from duoduo_menu as a,duoduo_menu_access as b where a.id=b.menu_id and b.role_id='1' and a.mod<>'fun' order by a.listorder desc,a.sort desc,a.id asc-----22:19:41
+::1-----set names utf8-----22:19:44
+::1-----select * from duoduo_webset where type=1 or type=0 -----22:19:44
+::1-----select * from duoduo_webset where type=2 -----22:19:44
+::1-----select `key`,`secret`,`sort` as num from duoduo_appkey where sort>0 order by id asc -----22:19:44
+::1-----select val from duoduo_webset where var="authorize" limit 1-----22:19:44
+::1-----select a.id from duoduo_menu as a,duoduo_menu_access as b where a.`mod`="webset" and a.`act`="center" and a.id=b.menu_id and b.role_id="1" limit 1-----22:19:44
+::1-----select a.id,a.node,a.mod,a.act,a.title,a.parent_id,a.hide from duoduo_menu as a,duoduo_menu_access as b where a.id=b.menu_id and b.role_id='1' and a.mod<>'fun' order by a.listorder desc,a.sort desc,a.id asc-----22:19:44
+::1-----set names utf8-----22:20:18
+::1-----select * from duoduo_webset where type=1 or type=0 -----22:20:18
+::1-----select * from duoduo_webset where type=2 -----22:20:18
+::1-----select `key`,`secret`,`sort` as num from duoduo_appkey where sort>0 order by id asc -----22:20:18
+::1-----select val from duoduo_webset where var="authorize" limit 1-----22:20:18
+::1-----select a.id from duoduo_menu as a,duoduo_menu_access as b where a.`mod`="webset" and a.`act`="center" and a.id=b.menu_id and b.role_id="1" limit 1-----22:20:18
+::1-----select a.id,a.node,a.mod,a.act,a.title,a.parent_id,a.hide from duoduo_menu as a,duoduo_menu_access as b where a.id=b.menu_id and b.role_id='1' and a.mod<>'fun' order by a.listorder desc,a.sort desc,a.id asc-----22:20:18
+::1-----set names utf8-----22:20:19
+::1-----select * from duoduo_webset where type=1 or type=0 -----22:20:19
+::1-----select * from duoduo_webset where type=2 -----22:20:19
+::1-----select `key`,`secret`,`sort` as num from duoduo_appkey where sort>0 order by id asc -----22:20:19
+::1-----select val from duoduo_webset where var="authorize" limit 1-----22:20:19
+::1-----select a.id from duoduo_menu as a,duoduo_menu_access as b where a.`mod`="webset" and a.`act`="center" and a.id=b.menu_id and b.role_id="1" limit 1-----22:20:19
+::1-----select a.id,a.node,a.mod,a.act,a.title,a.parent_id,a.hide from duoduo_menu as a,duoduo_menu_access as b where a.id=b.menu_id and b.role_id='1' and a.mod<>'fun' order by a.listorder desc,a.sort desc,a.id asc-----22:20:19
+::1-----set names utf8-----22:20:20
+::1-----select * from duoduo_webset where type=1 or type=0 -----22:20:20
+::1-----select * from duoduo_webset where type=2 -----22:20:20
+::1-----select `key`,`secret`,`sort` as num from duoduo_appkey where sort>0 order by id asc -----22:20:20
+::1-----select val from duoduo_webset where var="authorize" limit 1-----22:20:20
+::1-----select a.id from duoduo_menu as a,duoduo_menu_access as b where a.`mod`="webset" and a.`act`="center" and a.id=b.menu_id and b.role_id="1" limit 1-----22:20:20
+::1-----select a.id,a.node,a.mod,a.act,a.title,a.parent_id,a.hide from duoduo_menu as a,duoduo_menu_access as b where a.id=b.menu_id and b.role_id='1' and a.mod<>'fun' order by a.listorder desc,a.sort desc,a.id asc-----22:20:20
+::1-----set names utf8-----22:20:21
+::1-----select * from duoduo_webset where type=1 or type=0 -----22:20:21
+::1-----select * from duoduo_webset where type=2 -----22:20:21
+::1-----select `key`,`secret`,`sort` as num from duoduo_appkey where sort>0 order by id asc -----22:20:21
+::1-----select val from duoduo_webset where var="authorize" limit 1-----22:20:21
+::1-----select a.id from duoduo_menu as a,duoduo_menu_access as b where a.`mod`="webset" and a.`act`="center" and a.id=b.menu_id and b.role_id="1" limit 1-----22:20:21
+::1-----select a.id,a.node,a.mod,a.act,a.title,a.parent_id,a.hide from duoduo_menu as a,duoduo_menu_access as b where a.id=b.menu_id and b.role_id='1' and a.mod<>'fun' order by a.listorder desc,a.sort desc,a.id asc-----22:20:21
+::1-----set names utf8-----22:23:26
+::1-----select * from duoduo_webset where type=1 or type=0 -----22:23:26
+::1-----select * from duoduo_webset where type=2 -----22:23:26
+::1-----select `key`,`secret`,`sort` as num from duoduo_appkey where sort>0 order by id asc -----22:23:26
+::1-----select val from duoduo_webset where var="authorize" limit 1-----22:23:26
+::1-----select a.id from duoduo_menu as a,duoduo_menu_access as b where a.`mod`="webset" and a.`act`="center" and a.id=b.menu_id and b.role_id="1" limit 1-----22:23:26
+::1-----select a.id,a.node,a.mod,a.act,a.title,a.parent_id,a.hide from duoduo_menu as a,duoduo_menu_access as b where a.id=b.menu_id and b.role_id='1' and a.mod<>'fun' order by a.listorder desc,a.sort desc,a.id asc-----22:23:26

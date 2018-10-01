@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Yuri随笔</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" href="source/icon/icon.ico" type="image/x-icon" />
+	
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+	<!--<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>-->
+	<script src="http://apps.bdimg.com/libs/angular.js/1.2.15/angular.min.js"></script>
+	<style>
+		.container{
+			margin-top:50px;
+		}
+		.head{
+			display:inline !important; 
+		}
+		.add{
+			margin-left:20px;
+			font-size:2em;
+			text-decoration:none !important;
+			color:#000;
+		}
+		.add:hover{
+			transform: rotate(45deg);
+			-ms-transform: rotate(45deg); /* IE 9 */
+			-webkit-transform: rotate(45deg); /* Safari and Chrome */
+			color:#008855;
+			font-size:2em;
+		}
+		.card{
+			margin-top:10px;
+			/*border:1px solid red;*/
+			border-radius:10px;
+		}
+		.card-title{
+			font-size:1.5em;
+			display:inline-block; 
+		}
+		.card-text{
+			font-size:1.3em;
+		}
+		.date{
+			margin-left:20px;
+			/*取消块级元素属性*/
+			display:inline-block; 
+		}
+		.author{
+			margin-left:20px;
+		}
+	</style>
+	<script>
+		var app = angular.module('list', []);
+
+		app.controller('noteList', function($scope, $http) {
+			$http({
+				method: 'GET',
+				url: 'list.php'
+			}).then(function successCallback(response) {
+					//alert("请求成功"+JSON.stringify(response.data));
+					$scope.notes = response.data;
+				}, function errorCallback(response) {
+					// 请求失败执行代码
+					alert("请求失败,请联系管理员"+response);
+			});
+		  
+		});
+		</script>
+	
+</head>
+<body id="mydiv">
+
+	<div class="container"  ng-app="list" ng-controller="noteList">
+		<h2 class="head">Yuri随笔</h2>
+		<!-- <button type="button" class="btn btn-default btn-sm"> -->
+		
+          <a class="add glyphicon glyphicon-plus" href="form"></a>
+       
+		<!--重复 start-->
+		<div class="card {{note.bgcolor}}" ng-repeat="note in notes">
+			<div class="card-body">
+				<h4 class="card-title">{{note.title}}</h4>
+				<p class="card-text">{{note.content}}</p>
+				<a href="#"><span class="glyphicon glyphicon-thumbs-up"></span> </a>
+				<span class="like">{{note.like}}</span>
+				<span class="author">作者:{{note.author}}
+					<span ng-If="note.author===''">佚名</span>
+				</span>
+				<span class="date">{{note.date}}</span>
+			</div>
+		</div>
+		<!--重复 end-->
+		
+	</div>
+	
+	<!-- 背景div -->
+	<!-- <div id="mydiv" style="height:500px;"></div> -->
+	<script type="text/javascript">
+		window.onload = function() {
+		    //配置
+		    var config = {
+		        vx: 2,	//小球x轴速度,正为右，负为左
+		        vy: 2,	//小球y轴速度
+		        height: 1,	//小球高宽，其实为正方形，所以不宜太大
+		        width: 1,
+		        count: 200,		//点个数
+		        color: "121, 162, 185", 	//点颜色
+		        stroke: "230,24,25", 		//线条颜色
+		        dist: 4000, 	//点吸附距离
+		        e_dist: 30000, 	//鼠标吸附加速距离
+		        max_conn: 10 	//点到点最大连接数
+		    }
+
+		    //调用
+		    CanvasParticle(config);
+		}
+	</script>
+	<script type="text/javascript" src="canvas-particle.js"></script>
+
+</body>
+</html>

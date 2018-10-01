@@ -1,0 +1,48 @@
+<html>
+	<head>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js" type="text/javascript"></script>
+	</head>
+	
+	<body>
+		<script>
+			//alert();
+			// Create a client instance
+			//wss://iot.eclipse.org:443
+			//JavaSample
+			//client = new Paho.MQTT.Client("iot.eclipse.org", 443, "device/544424be-8ff2-11e7-91eb-0242ac130004/sensor/112d951e-90b7-11e7-87bd-0242ac130004");
+			client = new Paho.MQTT.Client("mqtt.intstar.cn", 443, "iotoi");
+			//client = new Paho.MQTT.Client(location.hostname, Number(location.port), "clientId");
+			
+
+			// set callback handlers
+			client.onConnectionLost = onConnectionLost;
+			client.onMessageArrived = onMessageArrived;
+
+			// connect the client
+			client.connect({onSuccess:onConnect,useSSL: true,onSuccess: onConnect});
+
+
+			// called when the client connects
+			function onConnect() {
+			  // Once a connection has been made, make a subscription and send a message.
+			  console.log("onConnect连接成功");
+			  client.subscribe("device/544424be-8ff2-11e7-91eb-0242ac130004/sensor/112d951e-90b7-11e7-87bd-0242ac130004");
+			  message = new Paho.MQTT.Message("Hello000");
+			  message.destinationName = "device/544424be-8ff2-11e7-91eb-0242ac130004/sensor/112d951e-90b7-11e7-87bd-0242ac130004";
+			  client.send(message);
+			}
+
+			// called when the client loses its connection
+			function onConnectionLost(responseObject) {
+			  if (responseObject.errorCode !== 0) {
+				console.log("onConnectionLost:"+responseObject.errorMessage);
+			  }
+			}
+
+			// called when a message arrives
+			function onMessageArrived(message) {
+			  console.log("有消息onMessageArrived:"+message.payloadString);
+			}
+		</script>
+	</body>
+</html>

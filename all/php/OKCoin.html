@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head> 
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
+  <meta charset="UTF-8" /> 
+  <title>我的比特币行情</title> 
+
+
+
+  <link rel="stylesheet" type="text/css" href="OKCoin_files/index.css" /> 
+ <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+ 
+ </head> 
+ <body> 
+		<script>
+				window.onload = function() {
+					//假设这里每个五分钟执行一次test函数
+					doAjax();
+				}
+				function doAjax() {
+					$.get('Example.php',
+					function(data) {
+						if (data.result != 0) {
+							console.log(data );
+							obj = JSON.parse(data);
+							r = obj.data[0];
+							//百分比
+							percent = r.changePercentage;
+							//现价
+							price_now = r.last;
+							
+							$(".green").html(percent);
+							$(".price_now").html(price_now);
+							
+							
+						}
+					});
+					setTimeout(doAjax, 1000 * 10 * 1); //这里的1000表示1秒有1000毫秒,1分钟有60秒,7表示总共7分钟
+				}	
+		</script>
+ 
+ 
+  <div class="home-container"> 
+   <div class="home-quotation"> 
+    <div id="tickerContainer" style="width: 1170px;">
+     <div id="quotation">
+      <ul class="quotation-imgs" id="quotationImgs" style="width: 1680px; transition: all 0s ease 0s; left: -1230px;">
+       <li class="li-img" style="width:210px;margin-left:30px" data-symbol="btc_usd">
+        <div class="contrast clear">
+         <span>BTC/USD</span>
+         <span class="percent green">+0.06%</span>
+        </div>
+        <div class="amount clear">
+         <span class="price_now">6,717.070</span>
+         <span>USD</span>
+        </div>
+        <div class="vol clear">
+         <span>Vol:&nbsp;</span>
+         <span>47.000</span> 
+         <span>BTC</span>
+        </div></li>
+		
+		
+		<!--
+       <li class="li-img" style="width:210px;margin-left:30px" data-symbol="ltc_usd">
+        <div class="contrast clear">
+         <span>LTC/USD</span>
+         <span class="red">-1.43%</span>
+        </div>
+        <div class="amount clear">
+         <span>57.030</span>
+         <span>USD</span>
+        </div>
+        <div class="vol clear">
+         <span>Vol:&nbsp;</span>
+         <span>665.000</span> 
+         <span>LTC</span>
+        </div></li>
+       <li class="li-img" style="width:210px;margin-left:30px" data-symbol="eth_usd">
+        <div class="contrast clear">
+         <span>ETH/USD</span>
+         <span class="red">-1.34%</span>
+        </div>
+        <div class="amount clear">
+         <span>275.200</span>
+         <span>USD</span>
+        </div>
+        <div class="vol clear">
+         <span>Vol:&nbsp;</span>
+         <span>374.000</span> 
+         <span>ETH</span>
+        </div></li>
+       <li class="li-img" style="width:210px;margin-left:30px" data-symbol="etc_usd">
+        <div class="contrast clear">
+         <span>ETC/USD</span>
+         <span class="green">+0.00%</span>
+        </div>
+        <div class="amount clear">
+         <span>12.510</span>
+         <span>USD</span>
+        </div>
+        <div class="vol clear">
+         <span>Vol:&nbsp;</span>
+         <span>4,173.000</span> 
+         <span>ETC</span>
+        </div></li>
+       <li class="li-img" style="width:210px;margin-left:30px" data-symbol="bch_usd">
+        <div class="contrast clear">
+         <span>BCH/USD</span>
+         <span class="red">-0.60%</span>
+        </div>
+        <div class="amount clear">
+         <span>525.480</span>
+         <span>USD</span>
+        </div>
+        <div class="vol clear">
+         <span>Vol:&nbsp;</span>
+         <span>79.000</span> 
+         <span>BCH</span>
+        </div></li>
+       <li class="li-img" style="width:210px;margin-left:30px" data-symbol="usdt_usd">
+        <div class="contrast clear">
+         <span>USDT/USD</span>
+         <span class="green">0.00%</span>
+        </div>
+        <div class="amount clear">
+         <span>0.000</span>
+         <span>USD</span>
+        </div>
+        <div class="vol clear">
+         <span>Vol:&nbsp;</span>
+         <span>0.000</span> 
+         <span>USDT</span>
+        </div></li>
+       <li class="li-img" style="width:210px;margin-left:30px" data-symbol="tusd_usd">
+        <div class="contrast clear">
+         <span>TUSD/USD</span>
+         <span class="green">+0.00%</span>
+        </div>
+        <div class="amount clear">
+         <span>0.000</span>
+         <span>USD</span>
+        </div>
+        <div class="vol clear">
+         <span>Vol:&nbsp;</span>
+         <span>0.000</span> 
+         <span>TUSD</span>
+        </div></li>-->
+      </ul>
+     </div>
+    </div> 
+   </div> 
+  </div> 
+
+</body>
+</html>
